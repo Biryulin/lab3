@@ -15,6 +15,17 @@ namespace _22._01._25
         public Form1()
         {
             InitializeComponent();
+            this.KeyPreview = true;
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+        }
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+            
+            if (e.KeyCode == Keys.Space)
+            {
+                button1.PerformClick();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -30,6 +41,7 @@ namespace _22._01._25
             {
                 MessageBox.Show("Ты что не правильный формат");
             }
+            MessageBox.Show("Попадание");
             c = 2 * (Math.Sin(x) + Math.Cos(y));
             string otvet = c.ToString();
             label4.Text = otvet;
@@ -49,6 +61,10 @@ namespace _22._01._25
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
         }
     }
 }
